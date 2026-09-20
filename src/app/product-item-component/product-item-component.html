@@ -1,0 +1,6 @@
+<h1>Thông tin sản phẩm</h1>
+<p>Tên sản phẩm : {{itemData.name}}</p>
+<p>Giá bán : {{itemData.price}}</p>
+<p>Trạng thái : {{itemData.isAvailable}}</p>
+<br>
+<button [disabled]="!itemData.isAvailable" (click)="handleBuyClick()">Mua hàng</button>
