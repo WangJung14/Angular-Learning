@@ -1,0 +1,9 @@
+<h1>Giỏ hàng</h1>
+@for (item of productCartList(); track item.name) {
+  @if (!item.isAvailable) {
+    <p>Tên sản phẩm {{item.name}}</p>
+    <p>Giá sản phẩm {{item.price}}</p>
+    <button (click)="removeFromCart(item)">Xóa khỏi giỏ hàng</button>
+    <br>
+  }
+}

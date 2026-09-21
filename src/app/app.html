@@ -1,4 +1,5 @@
-<h1>Thông tin sản phẩm</h1>
-@for(item of productList; track item.name){
-  <app-product-item-component [itemData]="item" (onBuy)="buyProduct($event)"></app-product-item-component>
-}
+<nav>
+  <a routerLink="/products" class="nav-link">Danh sách sản phẩm </a>
+  <a routerLink="/cart" class="nav-link">Giỏ hàng</a>
+</nav>
+<router-outlet></router-outlet>
