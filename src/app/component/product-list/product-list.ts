@@ -22,6 +22,7 @@ export class ProductList {
 
   // Declaration Product list
   productList = this.productService.productList;
+  isLoading = this.productService.isLoading;
   newProductList : Product[] = this.productList();
 
   // Buy Product Func
