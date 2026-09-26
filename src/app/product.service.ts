@@ -3,7 +3,7 @@ import { Injectable, signal } from '@angular/core';
 export interface Product {
   name : string,
   price : number,
-  isAvailable : boolean
+  stock : number,
 }
 
 @Injectable({
@@ -15,17 +15,17 @@ export class ProductService {
   productList = signal<Product[]> ([{
     name : "Iphone 19",
     price : 19999,
-    isAvailable : true
+    stock : 10
   },
     {
       name : "SamsungS24",
       price : 18888,
-      isAvailable : true
+      stock : 15
     },
     {
       name : "OppoReno14",
       price : 17777,
-      isAvailable : true
+      stock : 20
     }])
 
   // Get all product in product list

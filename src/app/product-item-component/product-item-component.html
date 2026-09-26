@@ -1,5 +1,8 @@
 <p>Tên sản phẩm : {{itemData.name}}</p>
 <p>Giá bán : {{itemData.price}}</p>
-<p>Trạng thái : {{itemData.isAvailable}}</p>
+<p>Số lượng sản phẩm : {{itemData.stock}}</p>
+@if (itemData.stock === 0) {
+  <p>Hết hàng</p>
+}
 <br>
-<button [disabled]="!itemData.isAvailable" (click)="handleBuyClick()">Mua hàng</button>
+<button [disabled]="itemData.stock <= 0" (click)="handleBuyClick()">Mua hàng</button>

@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 interface Product {
   name : string ,
   price : number,
-  isAvailable : boolean
+  stock : number
 }
 
 @Component({
