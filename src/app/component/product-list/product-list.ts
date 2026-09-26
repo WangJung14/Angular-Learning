@@ -27,6 +27,9 @@ export class ProductList {
   // Buy Product Func
   buyProduct(product: Product) {
     product.isAvailable = false;
+
+    // create new array list for signal
+    this.productService.productList.update(oldList => [...oldList]);
   }
 
   // Filter Product list
