@@ -16,12 +16,12 @@ export class AddProduct {
 
   newProductName: string = '';
   newProductPrice: number = 0;
-  newProductStock : number = 0;
+  newProductQuantity : number = 0;
   onSubmit(){
-    const newProduct : Product = {
-      name : this.newProductName,
-      price : this.newProductPrice,
-      stock : this.newProductStock
+    const newProduct: Product = {
+      name: this.newProductName,
+      price: this.newProductPrice,
+      quantity: this.newProductQuantity,
     };
     this.productService.addProduct(newProduct);
     this.router.navigate(['/products'])

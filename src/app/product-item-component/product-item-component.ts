@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 interface Product {
-  name : string ,
-  price : number,
-  stock : number
+  name: string;
+  price: number;
+  quantity: number;
 }
 
 @Component({

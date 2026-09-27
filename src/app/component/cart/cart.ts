@@ -20,15 +20,15 @@ export class Cart {
     const currentList = this.productCartList;
 
     for(let i = 0 ; i < currentList().length ; i++){
-      if (currentList()[i].stock > 0){
-        total += (currentList()[i].price * currentList()[i].stock);
+      if (currentList()[i].quantity > 0) {
+        total += currentList()[i].price * currentList()[i].quantity;
       }
     }
     return total;
   })
   // remove product from cart
   removeFromCart(product: Product) {
-    product.stock--;
+    product.quantity--;
     // create new array for signal
     this.productService.productList.update(oldList => [...oldList]);
   }

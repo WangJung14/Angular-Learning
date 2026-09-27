@@ -5,7 +5,13 @@ import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/sign
 export interface Product {
   name : string,
   price : number,
-  stock : number,
+  quantity : number,
+}
+
+export interface ApiResponse{
+  code : number;
+  message : string;
+  data : Product[];
 }
 
 @Injectable({
@@ -28,13 +34,13 @@ export class ProductService {
     this.isLoading.set(true); // is loading...
 
     // api url
-    const apiUrl = 'http://localhost:8080/products';
+    const apiUrl = 'http://localhost:8080/api/v1/products';
 
     // Call HTTP GET method and listening result by using subcribe
-    this.http.get<Product[]>(apiUrl).subscribe({
-      next : (data) =>{
+    this.http.get<ApiResponse>(apiUrl).subscribe({
+      next : (response) =>{
         // get API success
-        this.productList.set(data); // thêm dữ liệu thật vào Signal
+        this.productList.set(response.data); // thêm dữ liệu thật vào Signal
         this.isLoading.set(false); // cập nhật lại trạng thái đang tải
       },
       error : (err) =>{
@@ -43,12 +49,11 @@ export class ProductService {
         this.isLoading.set(false); // tắt để giao diện trong bị treo
       }
     })
-
   }
 
   // Get all product in product list
   getAllProducts() {
-    return this.productList(); // them () để mở hộp
+    return this.productList; // them () để mở hộp
   }
 
   // Add new product

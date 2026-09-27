@@ -1,12 +1,12 @@
 <h1>Tìm kiếm sản phẩm</h1>
-<input [(ngModel)]="searchBox" (ngModelChange)="searchByKeyword()">
+<input [ngModel]="searchBox()" (ngModelChange)="searchBox.set($event)">
 <h1>Thông tin sản phẩm</h1>
 
 @if (isLoading()) {
   <p>Đang tải sản phẩm</p>
 }
 @else {
-  @for (item of newProductList; track item.name) {
+  @for (item of filterProductList(); track item.name) {
     <app-product-item-component [itemData]="item" (onBuy)="buyProduct($event)"></app-product-item-component>
   }
 }
